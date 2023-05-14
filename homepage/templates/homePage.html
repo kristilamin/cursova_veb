@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Виноградний рай</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
+</head>
+
+<body>
+    {% block content %}
+
+    <div id="first-list">
+        <nav>
+            <ul>
+                <li><a href="#first-list">ГОЛОВНА</a></li>
+                <li><a href="#second-list">ПРО НАС</a></li>
+                <li><a href="#third-list">НОВИНКИ</a></li>
+                <li><a href="#BlockInfo">КОНТАКТИ</a></li>
+            </ul>
+            <a id="intrance" href="{% url 'login' %}">УВІЙТИ</a>
+           
+        </nav>
+
+        <div class="container">
+            <div class="elem">
+                <h1>ВИНО ДЛЯ НАСОЛОДИ ДУШІ ТА ТІЛА</h1>
+                <p>Віднайди свій смак</p>
+                <button class="butnWatch" style="margin-top: 50px;"><a href="#third-list">ПЕРЕГЛЯНУТИ</a></button>
+            </div>
+        </div>
+
+        <!-- <section class="home" id="#content">
+            <div class="form_container">
+                <i class="uil uil-times form_close"></i>
+                <div class="form login_form">
+                    <form action="#">
+                        <h2>Вхід</h2>
+                        <div class="input_box">
+                            <input type="email" placeholder="Електронна пошта" required />
+                        </div>
+                        <div class="input_box">
+                            <input type="password" placeholder="Пароль" required />
+                            <i class="uil uil-eye-slash pw_hide"></i>
+                        </div>
+                        <div class="option_field">
+                            <a href="#" class="forgot_pw">Забули пароль?</a>
+                        </div>
+                        <button class="button">Увійти</button>
+                    </form>
+                </div>
+            </div>
+        </section> -->
+    </div>
+
+    <div id="second-list">
+        <div class="side second-list-left">
+            <div id="main-box">
+                <div class="box card-box">
+                    <div class="box front-box"></div>
+                    <div class="box back-box"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="side second-list-right">
+            <h6>ПРО НАС</h6>
+            <p>Винний завод "Виноградний рай" почав свою історію далеко в 1975 році,
+                коли група друзів з міста Києва вирішила взятися за виробництво
+                вина на власному подвір'ї. Початкові експерименти були не дуже
+                успішними, але натхненість і наполегливість підштовхнули їх
+                до подальшого розвитку проекту.</p>
+            <p>У 1980-х роках компанія зробила величезний крок вперед, коли вони зуміли
+                здобути додатковий капітал та купити ділянку з виноградниками в Херсонській
+                області. З того часу компанія почала активно розвиватися та створювати
+                вина високої якості з регіону.</p>
+            <p>Сьогодні "Виноградний рай" є одним з провідних виробників вина в
+                Україні та експортує свої продукти до країн Європи, Азії та Північної
+                Америки. Місія компанії полягає у виробництві якісних вин та збереженні
+                національних традицій виноробства. У своїй діяльності компанія
+                дотримується цінностей, таких як екологічна чистота, відповідальність
+                перед споживачами та партнерами, добросовісність та прозорість.</p>
+            <button class="btnNovunku" style="margin-top: 40px; margin-left: 50px;"><a href="#third-list">НОВИНКИ</a></button>
+        </div>
+    </div>
+
+    <div id="third-list">
+        <div class="side third-list-left">
+            <h1>НОВИНКИ</h1>
+            <div class="table-third-list-on-black">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Вино</th>
+                            <th>Алкоголю</th>
+                            <th>Цукру</th>
+                            <th>Ємність</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="../static/img/1.webp" alt="Вино"></td>
+                            <td>Стефанія</td>
+                            <td>12%</td>
+                            <td>7%</td>
+                            <td>1.5</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../static/img/2.jpg" alt="Вино"></td>
+                            <td>Мускат</td>
+                            <td>11%</td>
+                            <td>3%</td>
+                            <td>0.75</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../static/img/3.jpg" alt="Вино"></td>
+                            <td>Брют</td>
+                            <td>12.5%</td>
+                            <td> - </td>
+                            <td>0.75</td>
+                        </tr>
+                        <tr>
+                            <td><img src="../static/img/4.jpg" alt="Вино"></td>
+                            <td>Бренді</td>
+                            <td>40%</td>
+                            <td> - </td>
+                            <td>0.5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="side third-list-right">
+            <div class="table-third-list-on-img">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Опис</th>
+                            <th>Ціна</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Червоне напівсолодке. Серія: Бордо</td>
+                            <td><b>113грн</b></td>
+                        </tr>
+                        <tr>
+                            <td>Мікс білих та червоних вин. Серія: Select</td>
+                            <td><b>124грн</b></td>
+                        </tr>
+                        <tr>
+                            <td>Шампанське. Колір: Біле</td>
+                            <td><b>159грн</b></td>
+                        </tr>
+                        <tr>
+                            <td>Серія: Бренді</td>
+                            <td><b>175грн</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="fourth-list">
+        <div id="BlockInfo">
+            <p>
+                Контакти <br /><br />
+                +38 (032) 235-55-83 (адміністрація)<br />
+                +38 (096) 689-79-81 (адміністрація)<br />
+                +38 (032) 235-67-62 (адміністрація)
+            </p>
+            <ul class="social-media">
+                <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="https://telegram.org/"><i class="fa fa-telegram"></i></a></li>
+              </ul>
+            <p>
+                Адреса<br /><br />
+                вулиця Виноградна, 1<br />
+                вулиця Бочкова, 12<br />
+                Херсонська область
+            </p>
+        </div>
+    </div>
+    <!-- <script src="{% static 'js/script.js' %}"></script> -->
+    <!-- <script src="../static/js/script.js"></script> -->
+</body>
+</html>
+{% endblock content %}

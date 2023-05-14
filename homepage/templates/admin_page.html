@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <h1>Замовлення:</h1>
+    <ul>
+        {% for order in orders %}
+            <li>{{ order }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Товари:</h1>
+    <ul>
+        {% for product in products %}
+            <li>{{ product }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Сировина:</h1>
+    <ul>
+        {% for surovuna in surovunas %}
+            <li>{{ surovuna }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

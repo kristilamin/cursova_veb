@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <div>
+        <h1>Вітання! {{ request.user|title }}</h1>
+        <h3>У Вас <i>{{ count }} {% if count == 1 %}не закрите замовлення{% else %}не закритих замовлень{% endif %}</i>
+        </h3>
+    </div>
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'catalogue' %}" id="user_icon">
+        <i class="fas fa-list-ul catalog-icon"></i>
+        <p>Каталог</p>
+    </a>
+    <a href="{% url 'logout' %}" id="user_icon">
+        <i class="fas fa-sign-out-alt"></i>
+        <p>Вийти</p>
+    </a>
+    {% else %}
+    <a href="{% url 'login' %}">Увійти</a>
+    {% endif %}
+</div>
+
+<div id="search-add-wrapper">
+    <form action="" method="get">
+        <input type="text" name="search-area" placeholder="Пошук">
+        <button type="submit" class="button">
+            <i class="fas fa-search"></i> Знайти</button>
+    </form>
+    <a id="add-link" href="{% url 'order-create' %}">&#x2b;</a>
+</div>
+
+<div class="task-items-wrapper">
+    {% for i in order %}
+    <div class="task-wrapper">
+        {% if i.order_status == "Закрито" %}
+        <div class="task-title">
+            <div class="task-complete-icon"></div>
+            <i><s><a href="{% url 'order-detail' i.id%}">{{ i.product_id }}</a></s></i>
+        </div>
+        <a class="delete-link" href="{% url 'order-delete' i.id %}"><i class="fas fa-trash"></i></a>
+        {% else %}
+        <div class="task-title">
+            <div class="task-incomplete-icon"></div>
+            <a href="{% url 'order-detail' i.id%}">{{ i.product_id }}</a>
+        </div>
+        <a class="delete-link" href="{% url 'order-delete' i.id %}"><i class="fas fa-trash"></i></a>
+        {% endif %}
+    </div>
+    {% empty %}
+    <div class="task-wrapper">
+        <h3>Немає замовлень</h3>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="header-bar">
+    <h1>Зробити замовлення</h1>
+    <a href="{% url 'order' %}">&#215;</a>
+</div>
+<div class="center">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="button" type="submit" value="Замовити">
+    </form>
+</div>
+<style>
+    .center {
+        margin: 0 0 20px 80px;
+        width: 50%;
+        padding: 20px;
+    }
+</style>
+{% endblock content %}

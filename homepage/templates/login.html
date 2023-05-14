@@ -1,0 +1,86 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="header-bar">
+    <h1>Вхід</h1>
+    <a href="{% url 'homepage' %}">&#215;</a>
+</div>
+
+<div class="card-body">
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}"
+                placeholder="Ім'я користувача" required>
+        </div>
+        <div>
+            <input type="password" name="{{ form.password.name }}" id="{{ form.password.id_for_label }}"
+                placeholder="Пароль" required>
+            <i class="fa fa-eye-slash pw_hide"></i>
+        </div>
+        <input class="button" type="submit" value="Увійти">
+    </form>
+</div>
+
+<style>
+    i {
+        position: absolute;
+        top: 50.4%;
+        right: 39.5%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: #707070;
+    }
+
+    .pw_hide {
+        font-size: 15px;
+    }
+
+    label {
+        display: none;
+    }
+
+    .header-bar {
+        background: white;
+        height: 20px;
+        margin-bottom: 50px;
+    }
+
+    .header-bar h1 {
+        margin-left: 245px;
+        color: black;
+        font-style: normal;
+        text-shadow: none;
+        font-weight: 1000;
+        font-size: 40px;
+    }
+
+    .header-bar a {
+        color: black;
+    }
+
+    .button {
+        margin-top: 80px;
+        width: 20%;
+    }
+</style>
+
+<script>
+    const pwShowHide = document.querySelectorAll(".pw_hide");
+
+    pwShowHide.forEach((icon) => {
+        icon.addEventListener("click", () => {
+            let getPwInput = icon.parentElement.querySelector("input");
+            if (getPwInput.type === "password") {
+                getPwInput.type = "text";
+                icon.classList.replace("uil-eye-slash", "uil-eye");
+            } else {
+                getPwInput.type = "password";
+                icon.classList.replace("uil-eye", "uil-eye-slash");
+            }
+        });
+    });
+</script>
+
+{% endblock content %}

@@ -1,0 +1,494 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+#first-list a {
+    text-decoration: none;
+    transition: none;
+    color: #fbfcfc;
+}
+
+#first-list {
+    width: 100%;
+    height: 100vh;
+    padding: 20px 10%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../img/RedWineHeader.png");
+}
+
+#intrance {
+    padding: 10px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+nav ul {
+    flex: 1;
+    text-align: left;
+    margin-right: 150px;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fbfcfc;
+    font-family: "Aboreto", "Segoe UI Light", sans-serif;
+    font-weight: 700;
+    position: relative;
+    padding: 10px;
+    z-index: 0;
+}
+
+nav ul li a::before {
+    content: "";
+    width: 100%;
+    height: 0;
+    background: #9c1200;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    bottom: -5px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: height 0.5s;
+}
+
+nav ul li a:hover::before {
+    height: 300px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container .elem {
+    width: 33%;
+    position: relative;
+}
+
+#first-list h1 {
+    margin: 300px 30px 30px 0;
+    color: #fbfcfc;
+    width: 70%;
+}
+
+#first-list p {
+    font-style: italic;
+    color: #fbfcfc;
+    margin-bottom: 15px;
+}
+
+.butnWatch,
+.butnAutorisation,
+.btnNovunku {
+    background-color: #9c1200;
+    border: none;
+    padding: 15px 30px;
+    box-shadow: red 3px 2px;
+    transition: none;
+    text-decoration: none;
+    color: #fbfcfc;
+}
+
+.butnWatch a,
+.btnNovunku a {
+    transition: none;
+    text-decoration: none;
+    color: #fbfcfc;
+}
+
+/* From */
+.form_container {
+    position: fixed;
+    max-width: 320px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    z-index: 101;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-out;
+}
+
+.home.show .form_container {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.form_container.active .login_form {
+    display: none;
+}
+
+.form_container h2 {
+    font-size: 25px;
+    color: #0b0217;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.input_box {
+    position: relative;
+    margin-top: 25px;
+    width: 100%;
+    height: 40px;
+}
+
+.input_box input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #333;
+    transition: all 0.2s ease;
+    border-bottom: 1.5px solid #aaaaaa;
+}
+
+.input_box input:focus {
+    border-color: #9c1200;
+}
+
+.input_box i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #707070;
+}
+
+.input_box i.email,
+.input_box i.password {
+    left: 0;
+}
+
+.input_box input:focus~i.email,
+.input_box input:focus~i.password {
+    color: #9c1200;
+}
+
+.option_field {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.form_close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: black;
+    font-size: 22px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#content {
+    display: none;
+    visibility: hidden;
+}
+
+.home::before {
+    content: "";
+    position: absolute;
+    height: 0vh;
+    width: 0vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease-out;
+}
+
+.home.show::before {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.form_container a {
+    color: #9c1200;
+    font-size: 12px;
+
+}
+
+.form_container a:hover {
+    text-decoration: underline;
+}
+
+.form_container .button {
+    background: #9c1200;
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 10px;
+    color: white;
+}
+
+
+/*****************************************************/
+
+#second-list {
+    width: 100%;
+    height: 100vh;
+    background-color: #fbfcfc;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side {
+    width: 50%;
+    position: relative;
+}
+
+/* головний контейнер */
+#main-box {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* поєднання головної і задньої сторони */
+.card-box {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+}
+
+/* контролер руху */
+.card-box:hover {
+    transform: rotateX(180deg);
+}
+
+/* головна сторона */
+.front-box {
+    position: absolute;
+    backface-visibility: hidden;
+    overflow: hidden;
+
+    background-image: url("../img/plant.jpg");
+    background-size: cover;
+}
+
+/* задня сторона */
+.back-box {
+    position: absolute;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background-image: url("../img/tara.jpg");
+    background-size: cover;
+    transform: rotateX(180deg);
+}
+
+#second-list h6 {
+
+    margin: 133px 50px 50px 50px;
+    color: #9c1200;
+    font-size: 25px;
+}
+
+#second-list p {
+    margin: 15px 40px 0 40px;
+    color: #000001;
+    font-family: "Segoe UI Light", sans-serif;
+    width: 75%;
+    text-align: justify;
+}
+
+.second-list-left {
+    background-image: radial-gradient(#9c1200, rgba(215, 123, 123, 1), rgba(220, 7, 7, 1));
+}
+
+/*****************************************************/
+
+#third-list {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url("../img/wineTexture.jpg");
+    background-size: cover;
+}
+
+.third-list-left {
+    background-color: #000001;
+}
+
+.table-third-list-on-black,
+.table-third-list-on-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.table-third-list-on-black table,
+.table-third-list-on-img table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 50px 20px 20px 20px;
+}
+
+table td img {
+    height: 65px;
+    width: auto;
+}
+
+.table-third-list-on-black th,
+.table-third-list-on-black td {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fbfcfc;
+    height: 65px;
+}
+
+.table-third-list-on-img th,
+.table-third-list-on-img td {
+    padding: 15px;
+    background-color: rgba(0, 0, 1, 0.65);
+    color: #fbfcfc;
+}
+
+th {
+    text-align: left;
+}
+
+.table-third-list-on-black thead {
+    background-image: url("../img/texture.jpg");
+    background-size: cover;
+}
+
+.table-third-list-on-img thead {
+    background-color: #9c1200;
+    opacity: 0.8;
+}
+
+thead th {
+    color: #fbfcfc;
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+tbody td {
+    position: relative;
+    text-align: center;
+}
+
+tbody td:hover:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+}
+
+table td,
+th,
+thead {
+    height: 100px;
+}
+
+#third-list h1 {
+    margin: 50px 0 15px 145px;
+    color: #fbfcfc;
+    width: 70%;
+}
+
+/*****************************************************/
+
+#fourth-list {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #000001;
+}
+
+#BlockInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #000001;
+    margin-top: 5px;
+    padding: 80px;
+    color: rgb(174, 161, 161);
+    gap: 200px
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.social-media li {
+    margin: 0 10px;
+}
+
+.social-media a {
+    color: #9c1200;
+    text-decoration: none;
+}
+
+.social-media i {
+    font-size: 24px;
+    margin: 0 15px 0 15px;
+}
+
+.fa-facebook:before {
+    content: "\f09a";
+}
+
+.fa-instagram:before {
+    content: "\f16d";
+}
+
+.fa-telegram:before {
+    content: "\f2c6";
+}
+
+.fa:hover::before {
+    color: red;
+}

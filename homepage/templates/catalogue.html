@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="header-bar">
+    <h1>Каталог продуктів</h1>
+    <a href="{% url 'order' %}">&#215;</a>
+</div>
+
+{% if product %}
+<div class="table">
+    <ul>
+        {% for prod in product %}
+        <li>
+            <h3>{{ prod.product_name }}</h3>
+            <p>Тип: {{ prod.wine_type }}</p>
+            <p>Додано на сайт: {{ prod.created_at }}</p>
+            <p>Сировина: {{ prod.surovuna_id }}</p>
+            <p>Ціна: {{ prod.price }} грн.</p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Продукти не знайдені.</p>
+    {% endif %}
+</div>
+
+<style>
+    ul {
+        list-style-type: none;
+        margin-right: 40px;
+    }
+
+    li {
+        border: 1px solid black;
+        padding: 20px 220px 20px 20px;
+        margin-bottom: 10px;
+        margin: 20px;
+    }
+
+    h3 {
+        margin-bottom: 10px;
+        color: #9c1200;
+    }
+    
+    .table {
+        display: flex;
+        margin-bottom: 100px;
+    }
+</style>
+{% endblock %}

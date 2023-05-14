@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load floatmul %}
+{% block content %}
+<div class="header-bar">
+    <h1>{{ order.product_id }}</h1>
+    <a href="{% url 'order' %}">&#215;</a>
+</div>
+    <table>
+        <tr>
+            <td class="order-info">Ціна:</td>
+            <td>{{ order.product_id.price }} грн</td>
+        </tr>
+        <tr>
+            <td class="order-info">Тип:</td>
+            <td>{{ order.product_id.wine_type }}</td>
+        </tr>
+        <tr>
+            <td class="order-info">Замовлено:</td>
+            <td>{{ order.quantity_of_product }} пляшок</td>
+        </tr>
+        <tr>
+            <td class="order-info">Дата створення:</td>
+            <td>{{ order.created_at }}</td>
+        </tr>
+        <tr>
+            <td class="order-info">Оновлено:</td>
+            <td>{{ order.last_updated_at }}</td>
+        </tr>
+        <tr>
+            <td class="order-info">Статус:</td>
+            <td>{{ order.order_status }}</td>
+        </tr>
+        <tr>
+            <td class="order-info">Загальна ціна за замовлення:</td>
+            <td>
+                {% with total_price=order.product_id.price|floatmul:order.quantity_of_product %}
+                {{ total_price }} грн
+                {% endwith %}
+            </td>
+        </tr>
+    </table>
+<style>
+    .order-info {
+        font-weight: bold;
+        padding-right: 10px;
+    }
+    table {
+        padding-bottom: 45px;
+        padding-top: 25px;
+    }
+    td {
+        padding: 10px 10px 10px 70px;
+    }
+</style>
+{% endblock content %}
